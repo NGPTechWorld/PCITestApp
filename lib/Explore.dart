@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pcitest/Moduls.dart';
 
 class Explore extends StatefulWidget {
   const Explore({super.key});
@@ -10,147 +10,94 @@ class Explore extends StatefulWidget {
 }
 
 class _ExploreState extends State<Explore> {
-  int _selectedIndex = 0;
-  static List<Widget> _widgetOptions = <Widget>[
-    StorePage(),
-    CategoriesPage(),
-    CartPage(),
-    FavoritesPage(),
-    ProfilePage(),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+          child: GridView.count(
+            crossAxisCount:2,
+            children:categories.map((cate) => InkWell(
+              onTap: (){
+                 print(cate);
+              },
+              child: Container(
+                  margin:EdgeInsets.all(10) ,
+                  decoration: BoxDecoration(
+                    border:Border.all(color: setColorAlpha(cate["backgroundColor"], 0.7)),
+                    borderRadius: BorderRadius.circular(20),
+                    color: setColorAlpha(cate["backgroundColor"],0.1),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.network(cate["imageUrl"],height: 100,width: 120,fit: BoxFit.contain,),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: FittedBox(
+                          fit: BoxFit.contain,
+                          child: Text(
+                            cate["name"],
+                            style: TextStyle(
+                              color: Colors.black, // لون النص
+                              fontSize: 16, // حجم النص الأقصى
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+              ),
+            )).toList(),
+          )
+      ),
+    );
   }
+  Color setColorAlpha(Color c,double d){
+    return c.withOpacity(d);
+  }
+}
+class CategoryItem extends StatelessWidget {
+  final String categoryName;
+  final String imageUrl;
+  final Color backgroundColor;
+
+  CategoryItem({
+    required this.categoryName,
+    required this.imageUrl,
+    required this.backgroundColor,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              'assets/your_svg_file.svg', // استبدل بمسار ملف SVG الخاص بك
-              width: 30,
-              height: 30,
-            ),
-            SizedBox(width: 5),
-            Text('My Store'),
-          ],
-        ),
-        automaticallyImplyLeading: false,
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(10),
       ),
-      body: _widgetOptions.elementAt(_selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              "src/store.svg",
-              width: 24,
-              height: 24,
+      padding: EdgeInsets.all(10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            categoryName,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
-            label: 'Store',
           ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'src/explore.svg', // استبدل بمسار ملف SVG لأيقونة الـ Categories
-              width: 24,
-              height: 24,
-            ),
-            label: 'Explore',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'src/cart.svg', // استبدل بمسار ملف SVG لأيقونة الـ Cart
-              width: 24,
-              height: 24,
-            ),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'src/fav.svg', // استبدل بمسار ملف SVG لأيقونة الـ Favorites
-              width: 24,
-              height: 24,
-            ),
-            label: 'Favorites',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              "src/profile.svg", // استبدل بمسار ملف SVG لأيقونة الـ Profile
-              width: 24,
-              height: 24,
-            ),
-            label: 'Profile',
+          SizedBox(height: 10),
+          Image.asset(
+            imageUrl,
+            width: 100,
+            height: 100,
+            fit: BoxFit.cover,
           ),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: HexColor("#53B175"),
-        unselectedItemColor: Colors.black,
-        onTap: _onItemTapped,
-      ),
-    );
-  }
-}
-
-class StorePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Store Page',
-        style: TextStyle(fontSize: 24),
-      ),
-    );
-  }
-}
-
-class CategoriesPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Categories Page',
-        style: TextStyle(fontSize: 24),
-      ),
-    );
-  }
-}
-
-class CartPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Cart Page',
-        style: TextStyle(fontSize: 24),
-      ),
-    );
-  }
-}
-
-class FavoritesPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Favorites Page',
-        style: TextStyle(fontSize: 24),
-      ),
-    );
-  }
-}
-
-class ProfilePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Profile Page',
-        style: TextStyle(fontSize: 24),
       ),
     );
   }

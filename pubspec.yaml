@@ -70,6 +70,12 @@ flutter:
     - src/fav.svg
     - src/profile.svg
     - src/shop.svg
+    - src/c1.png
+    - src/c2.png
+    - src/c3.png
+    - src/c4.png
+    - src/c5.png
+    - src/c6.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

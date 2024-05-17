@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pcitest/Explore.dart';
+import 'package:pcitest/HomePage.dart';
 import 'package:pcitest/SplashScreen.dart';
 
 class Onbording extends StatefulWidget {
@@ -49,7 +50,7 @@ class _OnbordingState extends State<Onbording> {
                 shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(16)),
                 color: HexColor("#53B175"),
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Explore()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
                 },
                 minWidth: 353,
                 height: 67,
