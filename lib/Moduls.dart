@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:hexcolor/hexcolor.dart';
 
-List<Item>CartItems=[];
+List<ItemCart>CartItems=[];
 List<Item>Beverages=[
   Item.name("Diet Coke", "355ml, Price", "src/Beverages/img1.png",1.99 ),
   Item.name("Sprite Can", "355ml, Price", "src/Beverages/img2.png", 1.50),
@@ -25,6 +25,13 @@ List<ItemCategoris>categorie=[
   ItemCategoris.name("Dairy & Eggs", "src/c5.png", HexColor("#FDE598"),[]),
   ItemCategoris.name("Beverages", "src/c6.png", HexColor("#B7DFF5"),[]),
 ];
+class ItemCart{
+  Item item;
+  int number;
+  double totalPrice;
+
+  ItemCart.name(this.item, this.number, this.totalPrice);
+}
 class ItemCategoris{
   String name,img;
   Color backgroundColor;

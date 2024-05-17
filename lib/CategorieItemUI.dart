@@ -12,6 +12,7 @@ class CategorieItemUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Center(child: Text(categorie.name)),
         actions: [
           Container(
@@ -109,7 +110,7 @@ class CategorieItemUI extends StatelessWidget {
                                   shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(16)),
                                   color: HexColor("#53B175"),
                                   onPressed: (){
-                                    print("d");
+                                    CartItems.add(ItemCart.name(item, 1, item.price));
                                   },
                                   minWidth: 30,
                                   height: 40,
@@ -129,6 +130,6 @@ class CategorieItemUI extends StatelessWidget {
     );
   }
   String priceItem(double p){
-    return "\$"+p.toString();
+    return "\$"+p.toStringAsFixed(2);
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pcitest/CartUI.dart';
 import 'package:pcitest/Explore.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   static List<Widget> _widgetOptions = <Widget>[
     StorePage(),
     Explore(),
-    CartPage(),
+    CartUI(),
     FavoritesPage(),
     ProfilePage(),
   ];
@@ -101,26 +102,6 @@ class StorePage extends StatelessWidget {
   }
 }
 
-class CategoriesPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-
-    );
-  }
-}
-
-class CartPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Cart Page',
-        style: TextStyle(fontSize: 24),
-      ),
-    );
-  }
-}
 
 class FavoritesPage extends StatelessWidget {
   @override
