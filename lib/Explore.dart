@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:pcitest/CategorieItemUI.dart';
 import 'package:pcitest/Moduls.dart';
 
 class Explore extends StatefulWidget {
@@ -12,46 +13,51 @@ class Explore extends StatefulWidget {
 class _ExploreState extends State<Explore> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-          child: GridView.count(
-            crossAxisCount:2,
-            children:categories.map((cate) => InkWell(
-              onTap: (){
-                 print(cate);
-              },
-              child: Container(
-                  margin:EdgeInsets.all(10) ,
-                  decoration: BoxDecoration(
-                    border:Border.all(color: setColorAlpha(cate["backgroundColor"], 0.7)),
-                    borderRadius: BorderRadius.circular(20),
-                    color: setColorAlpha(cate["backgroundColor"],0.1),
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Image.network(cate["imageUrl"],height: 100,width: 120,fit: BoxFit.contain,),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: FittedBox(
-                          fit: BoxFit.contain,
-                          child: Text(
-                            cate["name"],
-                            style: TextStyle(
-                              color: Colors.black, // لون النص
-                              fontSize: 16, // حجم النص الأقصى
+    return Scaffold(
+      appBar: AppBar(title: Center(child: Text("Find Products"),),
+      automaticallyImplyLeading: false,),
+      body:  Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+            child: GridView.count(
+              crossAxisCount:2,
+              children:categorie.map((cate) => InkWell(
+                onTap: (){
+                  print(cate);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> CategorieItemUI(cate)));
+                },
+                child: Container(
+                    margin:EdgeInsets.all(10) ,
+                    decoration: BoxDecoration(
+                      border:Border.all(color: setColorAlpha(cate.backgroundColor, 0.7)),
+                      borderRadius: BorderRadius.circular(20),
+                      color: setColorAlpha(cate.backgroundColor,0.1),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset(cate.img,height: 100,width: 120,fit: BoxFit.contain,),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: FittedBox(
+                            fit: BoxFit.contain,
+                            child: Text(
+                              cate.name,
+                              style: TextStyle(
+                                color: Colors.black, // لون النص
+                                fontSize: 16, // حجم النص الأقصى
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  )
-              ),
-            )).toList(),
-          )
+                      ],
+                    )
+                ),
+              )).toList(),
+            )
+        ),
       ),
     );
   }

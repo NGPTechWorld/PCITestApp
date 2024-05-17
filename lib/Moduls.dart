@@ -1,4 +1,33 @@
+import 'dart:ui';
+
 import 'package:hexcolor/hexcolor.dart';
+
+List<ItemCategoris>categorie=[
+  ItemCategoris.name("Frash Fruits & Vegetable", "src/c1.png", HexColor("#53B175")),
+  ItemCategoris.name("Cooking Oil & Ghee", "src/c2.png", HexColor("#F8A44C")),
+  ItemCategoris.name("Meat & Fish", "src/c3.png", HexColor("#F7A593")),
+  ItemCategoris.name("Bakery & Snacks", "src/c4.png", HexColor("#D3B0E0")),
+  ItemCategoris.name("Dairy & Eggs", "src/c5.png", HexColor("#FDE598")),
+  ItemCategoris.name("Beverages", "src/c6.png", HexColor("#B7DFF5")),
+  ItemCategoris.name("Frash Fruits & Vegetable", "src/c1.png", HexColor("#53B175")),
+  ItemCategoris.name("Cooking Oil & Ghee", "src/c2.png", HexColor("#F8A44C")),
+  ItemCategoris.name("Meat & Fish", "src/c3.png", HexColor("#F7A593")),
+  ItemCategoris.name("Bakery & Snacks", "src/c4.png", HexColor("#D3B0E0")),
+  ItemCategoris.name("Dairy & Eggs", "src/c5.png", HexColor("#FDE598")),
+  ItemCategoris.name("Beverages", "src/c6.png", HexColor("#B7DFF5")),
+];
+class ItemCategoris{
+  String name,img;
+  Color backgroundColor;
+  List<Item>? items;
+  ItemCategoris.name(this.name, this.img, this.backgroundColor);
+}
+class Item{
+  String name,descrption,img;
+  double price;
+
+  Item.name(this.name, this.descrption, this.img, this.price);
+}
 
 final List<Map<String,dynamic>> categories=[
   {

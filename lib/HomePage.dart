@@ -11,8 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-  List<bool> _selected = [true, false, false, false, false];
+  int _selectedIndex = 1;
+  List<bool> _selected = [false, true, false, false, false];
 
   static List<Widget> _widgetOptions = <Widget>[
     StorePage(),
