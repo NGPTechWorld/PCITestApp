@@ -76,6 +76,14 @@ flutter:
     - src/c4.png
     - src/c5.png
     - src/c6.png
+    - src/plus.svg
+    - src/Beverages/img1.png
+    - src/Beverages/img2.png
+    - src/Beverages/img3.png
+    - src/Beverages/img4.png
+    - src/Beverages/img5.png
+    - src/Beverages/img6.png
+    -
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
