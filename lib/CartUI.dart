@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pcitest/Moduls.dart';
+import 'package:pcitest/OrderAccepted.dart';
 
 class CartUI extends StatefulWidget {
   const CartUI({super.key});
@@ -182,6 +183,59 @@ class _CartUIState extends State<CartUI> {
                 )
             ),
           ),
+          Container(
+            padding: EdgeInsets.only(bottom: 15),
+            alignment: AlignmentDirectional.bottomCenter,
+            child: MaterialButton(
+              shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(16)),
+              color: HexColor("#53B175"),
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Container(
+                      height: 600,
+                      child: Center(
+                        child: Stack(
+                          children: [
+                            Container(
+
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage('src/checkcard.png'),
+                                  fit: BoxFit.contain,
+                                  alignment: Alignment(0.2, 0.2),
+                                ),
+                              ),
+
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(bottom: 10),
+                              child: MaterialButton(
+                                shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(16)),
+                                color: HexColor("#53B175"),
+                                onPressed: (){
+                                  CartItems.clear();
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderAccepted()));
+                                },
+                                minWidth: 353,
+                                height: 50,
+                                child: const Text("Ger Started",style: TextStyle(fontSize: 18,color: Colors.white,decoration: TextDecoration.none),textAlign: TextAlign.center,),
+                              ),
+                              alignment: AlignmentDirectional.bottomCenter,
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+              minWidth: 353,
+              height: 67,
+              child: const Text("Ger Checkout",style: TextStyle(fontSize: 18,color: Colors.white,decoration: TextDecoration.none),textAlign: TextAlign.center,),
+            ),
+          )
         ],
       ),
     );

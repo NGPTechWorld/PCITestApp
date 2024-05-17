@@ -79,6 +79,9 @@ flutter:
     - src/plus.svg
     - src/sub.svg
     - src/x.svg
+    - src/acc.svg
+    - src/back2.png
+    - src/checkcard.png
     - src/Beverages/img1.png
     - src/Beverages/img2.png
     - src/Beverages/img3.png
