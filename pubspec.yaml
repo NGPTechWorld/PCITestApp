@@ -65,6 +65,11 @@ flutter:
     - src/logo.svg
     - src/logomin.svg
     - src/back1.jpeg
+    - src/cart.svg
+    - src/explore.svg
+    - src/fav.svg
+    - src/profile.svg
+    - src/shop.svg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
