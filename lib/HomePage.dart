@@ -15,12 +15,12 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 1;
   List<bool> _selected = [false, true, false, false, false];
 
-  static List<Widget> _widgetOptions = <Widget>[
-    StorePage(),
-    Explore(),
-    CartUI(),
-    FavoritesPage(),
-    ProfilePage(),
+  static final List<Widget> _widgetOptions = <Widget>[
+    const StorePage(),
+    const Explore(),
+    const CartUI(),
+    const FavoritesPage(),
+    const  ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
@@ -91,9 +91,11 @@ class _HomePageState extends State<HomePage> {
 }
 
 class StorePage extends StatelessWidget {
+  const StorePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Store Page',
         style: TextStyle(fontSize: 24),
@@ -104,9 +106,11 @@ class StorePage extends StatelessWidget {
 
 
 class FavoritesPage extends StatelessWidget {
+  const FavoritesPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Favorites Page',
         style: TextStyle(fontSize: 24),
@@ -116,9 +120,11 @@ class FavoritesPage extends StatelessWidget {
 }
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Profile Page',
         style: TextStyle(fontSize: 24),

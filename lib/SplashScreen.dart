@@ -15,12 +15,10 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    double height= MediaQuery.of(context).size.height;
-    double  width= MediaQuery.of(context).size.width;
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Onbording()),
+        MaterialPageRoute(builder: (context) => const Onbording()),
       );
     });
     return Container(

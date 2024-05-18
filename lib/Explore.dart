@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:pcitest/CategorieItemUI.dart';
 import 'package:pcitest/Moduls.dart';
 
@@ -14,49 +13,47 @@ class _ExploreState extends State<Explore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Center(child: Text("Find Products"),),
+      appBar: AppBar(title: const Center(child: Text("Find Products"),),
       automaticallyImplyLeading: false,),
       body:  Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Container(
-            child: GridView.count(
-              crossAxisCount:2,
-              children:categorie.map((cate) => InkWell(
-                onTap: (){
-                  print(cate);
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> CategorieItemUI(cate)));
-                },
-                child: Container(
-                    margin:EdgeInsets.all(10) ,
-                    decoration: BoxDecoration(
-                      border:Border.all(color: setColorAlpha(cate.backgroundColor, 0.7)),
-                      borderRadius: BorderRadius.circular(20),
-                      color: setColorAlpha(cate.backgroundColor,0.1),
+        child: GridView.count(
+          crossAxisCount:2,
+          children:categorie.map((cate) => InkWell(
+            onTap: (){
+              print(cate);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> CategorieItemUI(cate)));
+            },
+            child: Container(
+                margin:const EdgeInsets.all(10) ,
+                decoration: BoxDecoration(
+                  border:Border.all(color: setColorAlpha(cate.backgroundColor, 0.7)),
+                  borderRadius: BorderRadius.circular(20),
+                  color: setColorAlpha(cate.backgroundColor,0.1),
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(cate.img,height: 100,width: 120,fit: BoxFit.contain,),
                     ),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Image.asset(cate.img,height: 100,width: 120,fit: BoxFit.contain,),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: FittedBox(
-                            fit: BoxFit.contain,
-                            child: Text(
-                              cate.name,
-                              style: TextStyle(
-                                color: Colors.black, // لون النص
-                                fontSize: 16, // حجم النص الأقصى
-                              ),
-                            ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: Text(
+                          cate.name,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
                           ),
                         ),
-                      ],
-                    )
-                ),
-              )).toList(),
-            )
+                      ),
+                    ),
+                  ],
+                )
+            ),
+          )).toList(),
         ),
       ),
     );
@@ -70,7 +67,7 @@ class CategoryItem extends StatelessWidget {
   final String imageUrl;
   final Color backgroundColor;
 
-  CategoryItem({
+  const CategoryItem({super.key,
     required this.categoryName,
     required this.imageUrl,
     required this.backgroundColor,
@@ -79,24 +76,24 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(10),
       ),
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             categoryName,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Image.asset(
             imageUrl,
             width: 100,

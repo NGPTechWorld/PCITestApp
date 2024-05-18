@@ -80,6 +80,8 @@ flutter:
     - src/sub.svg
     - src/x.svg
     - src/acc.svg
+    - src/p.svg
+    - src/card.svg
     - src/back2.png
     - src/checkcard.png
     - src/Beverages/img1.png
