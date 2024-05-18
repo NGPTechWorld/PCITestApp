@@ -1,9 +1,12 @@
+
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pcitest/Moduls.dart';
-import 'package:pcitest/OrderAccepted.dart';
 
+import 'package:path/path.dart';
 class CategorieItemUI extends StatefulWidget {
   CategorieItemUI(this.categorie,{super.key});
    ItemCategoris categorie;
@@ -90,7 +93,7 @@ class _CategorieItemUIState extends State<CategorieItemUI> {
                                   String name=nameItem.text;
                                   String dec=decItem.text;
                                   double price=double.parse(priceItem.text);
-                                  addItemincategori(Item.name(name, dec, "src/Beverages/img1.png", price),itemCategoris.name);
+                                  addItemincategori(Item.name(name, dec,"src/Beverages/img1.png", price),itemCategoris.name);
                                 });
                               },
                               minWidth: 353,
